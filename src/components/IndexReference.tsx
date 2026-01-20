@@ -121,10 +121,10 @@ export function IndexReference() {
                 {/* Description */}
                 <div className="px-4 py-3 bg-blue-950/30 border-b border-blue-900/30">
                   <p className="text-xs text-blue-300">
-                    <strong>Perpetual Futures</strong> - 무기한 선물 자산 인덱스
+                    <strong>Perpetual Futures</strong> - Perpetual asset index
                   </p>
                   <p className="text-xs text-gray-500 mt-1">
-                    position, markPx, oraclePx precompile에서 사용. uint16/uint32로 인코딩.
+                    Used in position, markPx, oraclePx precompiles. Encoded as uint16/uint32.
                   </p>
                 </div>
                 <div className="px-4 py-2 bg-gray-800/30 text-xs text-gray-500 font-medium grid grid-cols-12 gap-2">
@@ -156,13 +156,13 @@ export function IndexReference() {
                 {/* Description */}
                 <div className="px-4 py-3 bg-green-950/30 border-b border-green-900/30">
                   <p className="text-xs text-green-300">
-                    <strong>Spot Tokens</strong> - 현물 토큰 인덱스 (비순차적 고유 ID)
+                    <strong>Spot Tokens</strong> - Spot token index (non-sequential unique ID)
                   </p>
                   <p className="text-xs text-gray-500 mt-1">
-                    spotBalance precompile에서 사용. 예: <code className="bg-gray-800 px-1 rounded">HYPE=150</code>
+                    Used in spotBalance precompile. e.g., <code className="bg-gray-800 px-1 rounded">HYPE=150</code>
                   </p>
                   <p className="text-xs text-yellow-500/80 mt-1">
-                    ⚠️ Pair Index와 다름! Token 150 ≠ Pair @150
+                    ⚠️ Different from Pair Index! Token 150 ≠ Pair @150
                   </p>
                 </div>
                 <div className="px-4 py-2 bg-gray-800/30 text-xs text-gray-500 font-medium grid grid-cols-12 gap-2">
@@ -196,16 +196,16 @@ export function IndexReference() {
                 {/* Description */}
                 <div className="px-4 py-3 bg-yellow-950/30 border-b border-yellow-900/30">
                   <p className="text-xs text-yellow-300">
-                    <strong>Spot Trading Pairs</strong> - 현물 거래쌍 (@ 표기법, 0부터 순차)
+                    <strong>Spot Trading Pairs</strong> - Spot trading pairs (@ notation, sequential from 0)
                   </p>
                   <p className="text-xs text-gray-500 mt-1">
-                    spotPx precompile에서 사용. <code className="bg-gray-800 px-1 rounded">@1</code> = 두 번째 거래쌍.
+                    Used in spotPx precompile. <code className="bg-gray-800 px-1 rounded">@1</code> = second trading pair.
                   </p>
                   <p className="text-xs text-gray-500 mt-1">
-                    <strong>Tokens</strong> = 해당 Pair를 구성하는 Token Index (Base/Quote)
+                    <strong>Tokens</strong> = Token indices that make up this pair (Base/Quote)
                   </p>
                   <p className="text-xs text-yellow-500/80 mt-1">
-                    ⚠️ Token Index와 다름! Pair @1 ≠ Token 1
+                    ⚠️ Different from Token Index! Pair @1 ≠ Token 1
                   </p>
                 </div>
                 <div className="px-4 py-2 bg-gray-800/30 text-xs text-gray-500 font-medium grid grid-cols-12 gap-2">
@@ -259,7 +259,7 @@ export function IndexReference() {
           <div>→ spotPx</div>
         </div>
         <div className="pt-2 border-t border-gray-800 text-yellow-600/70">
-          ⚠️ Token Index ≠ Pair Index (서로 다른 인덱스 체계)
+          ⚠️ Token Index ≠ Pair Index (different indexing systems)
         </div>
       </div>
     </div>

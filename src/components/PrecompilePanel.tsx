@@ -114,14 +114,20 @@ export function PrecompilePanel({ address: walletAddress, onLog }: PrecompilePan
       let decodeInfo: { types: string[], format: (decoded: any) => string };
 
       switch (key) {
-        case 'position':
+        case 'position': {
+          const perpInfo = getPerpAsset(perpAsset);
+          const szDecimals = perpInfo?.szDecimals ?? 8;
           data = abiCoder.encode(['address', 'uint16'], [effectiveAddress, perpAsset]);
           query = `${shortenAddress(effectiveAddress)} / ${getPerpSymbol(perpAsset)}`;
           decodeInfo = {
             types: ['int64', 'uint64', 'int64', 'uint32', 'bool'],
-            format: (d) => `Size: ${Number(d[0]) / 1e8}, Leverage: ${d[3]}x`
+            format: (d) => {
+              const size = Number(d[0]) / Math.pow(10, szDecimals);
+              return `Size: ${size}, Leverage: ${d[3]}x`;
+            }
           };
           break;
+        }
         case 'spotBalance': {
           const tokenInfo = getSpotToken(spotToken);
           const balanceDivisor = tokenInfo ? getBalanceDivisor(tokenInfo.weiDecimals) : 1e8;
@@ -259,14 +265,17 @@ export function PrecompilePanel({ address: walletAddress, onLog }: PrecompilePan
           };
           break;
         }
-        case 'tokenSupply':
+        case 'tokenSupply': {
+          const tokenInfo = getSpotToken(spotToken);
+          const supplyDivisor = tokenInfo ? getBalanceDivisor(tokenInfo.weiDecimals) : 1e8;
           data = abiCoder.encode(['uint32'], [spotToken]);
           query = `${getSpotTokenSymbol(spotToken)} (Token #${spotToken})`;
           decodeInfo = {
             types: ['uint64', 'uint64', 'uint64', 'uint64', 'tuple(address,uint64)[]'],
-            format: (d) => `Total: ${(Number(d[1]) / 1e8).toLocaleString()} | Circ: ${(Number(d[2]) / 1e8).toLocaleString()}`
+            format: (d) => `Total: ${(Number(d[1]) / supplyDivisor).toLocaleString()} | Circ: ${(Number(d[2]) / supplyDivisor).toLocaleString()}`
           };
           break;
+        }
         case 'accountMarginSummary':
           data = abiCoder.encode(['uint32', 'address'], [0, effectiveAddress]); // DEX 0
           query = `DEX 0 / ${shortenAddress(effectiveAddress)}`;
