@@ -1,4 +1,4 @@
-import { Wallet, Activity, Copy, Check, Github } from 'lucide-react';
+import { Wallet, Activity, Copy, Check, Github, Mail } from 'lucide-react';
 import { useState } from 'react';
 
 interface HeaderProps {
@@ -36,6 +36,13 @@ export function Header({ address, chainId, isCorrectChain, onConnect }: HeaderPr
             title="View on GitHub"
           >
             <Github className="w-5 h-5" />
+          </a>
+          <a
+            href="mailto:hypurrquant.hik@gmail.com?subject=HyperLiquid DevTools Feedback"
+            className="text-gray-400 hover:text-white transition"
+            title="Send Feedback"
+          >
+            <Mail className="w-5 h-5" />
           </a>
         </div>
 
