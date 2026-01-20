@@ -1,4 +1,4 @@
-import { Wallet, Activity, Copy, Check } from 'lucide-react';
+import { Wallet, Activity, Copy, Check, Github } from 'lucide-react';
 import { useState } from 'react';
 
 interface HeaderProps {
@@ -28,6 +28,15 @@ export function Header({ address, chainId, isCorrectChain, onConnect }: HeaderPr
             <h1 className="text-xl font-bold">HyperLiquid DevTools</h1>
             <p className="text-xs text-gray-500">Precompile & CoreWriter Dashboard</p>
           </div>
+          <a
+            href="https://github.com/Hiksang/hyperliquid-devtool"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-2 text-gray-400 hover:text-white transition"
+            title="View on GitHub"
+          >
+            <Github className="w-5 h-5" />
+          </a>
         </div>
 
         {address ? (
