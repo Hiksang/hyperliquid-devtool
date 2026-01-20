@@ -26,3 +26,6 @@ dist-ssr
 # Test results
 test-results/
 playwright-report/
+
+# Test scripts (contains private keys for testing)
+scripts/

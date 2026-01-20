@@ -18,7 +18,7 @@ interface PrecompileResult {
   outputData?: string; // The raw output data from the call
 }
 
-const DEFAULT_ADDRESS = '0x4eb7A94dfd3e27B30dA3BB3a2498675aaF7F6fe4';
+const DEFAULT_ADDRESS = '';
 
 // Helper to calculate price divisor from szDecimals
 // Formula: divisor = 10^(6 - szDecimals)
@@ -45,7 +45,7 @@ export function PrecompilePanel({ address: walletAddress, onLog }: PrecompilePan
   const [perpAsset, setPerpAsset] = useState(0);
   const [spotToken, setSpotToken] = useState(0);
   const [spotPair, setSpotPair] = useState(0);
-  const [vaultAddress, setVaultAddress] = useState('0xdfc24b077bc1425ad1dea75bcb6f8158e10df303');
+  const [vaultAddress, setVaultAddress] = useState('');
   const [results, setResults] = useState<Record<string, PrecompileResult>>({});
 
   // Load asset metadata from API
