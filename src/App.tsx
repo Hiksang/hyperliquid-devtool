@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { Database, ArrowRightLeft, Activity } from 'lucide-react';
+import { Database, ArrowRightLeft, Activity, MessageSquare } from 'lucide-react';
 import { useWallet } from './hooks/useWallet';
 import { useBalances } from './hooks/useBalances';
 import { Header } from './components/Header';
@@ -138,6 +138,37 @@ function App() {
           )}
         </div>
       </main>
+
+      {/* Feedback Section */}
+      <footer className="max-w-7xl mx-auto px-6 py-8 mt-8 border-t border-gray-800">
+        <div className="bg-gradient-to-r from-blue-900/20 to-purple-900/20 rounded-xl p-6 border border-blue-800/30">
+          <div className="flex items-start gap-4">
+            <div className="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+              <MessageSquare className="w-5 h-5 text-blue-400" />
+            </div>
+            <div className="flex-1">
+              <h3 className="text-lg font-semibold text-white mb-2">We'd love your feedback!</h3>
+              <p className="text-gray-400 text-sm mb-4">
+                Help us improve HyperLiquid DevTools. Let us know about any bugs, missing features,
+                or suggestions you have. Your feedback is valuable!
+              </p>
+              <div className="flex flex-wrap gap-2 text-xs text-gray-500 mb-4">
+                <span className="bg-gray-800 px-2 py-1 rounded">Bug reports</span>
+                <span className="bg-gray-800 px-2 py-1 rounded">Feature requests</span>
+                <span className="bg-gray-800 px-2 py-1 rounded">UX improvements</span>
+                <span className="bg-gray-800 px-2 py-1 rounded">Documentation</span>
+              </div>
+              <a
+                href="mailto:hypurrquant.hik@gmail.com?subject=HyperLiquid DevTools Feedback&body=Hi,%0A%0AI'd like to share some feedback about HyperLiquid DevTools:%0A%0A"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-sm font-medium transition"
+              >
+                <MessageSquare className="w-4 h-4" />
+                Send Feedback
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
