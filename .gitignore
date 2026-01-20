@@ -29,3 +29,6 @@ playwright-report/
 
 # Test scripts (contains private keys for testing)
 scripts/
+
+# E2E tests
+e2e/

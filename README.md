@@ -1,19 +1,19 @@
 # HyperLiquid DevTools
 
-HyperEVM Precompile 및 CoreWriter 테스트를 위한 대시보드 애플리케이션.
+A dashboard application for testing HyperEVM Precompiles and CoreWriter.
 
 ## Features
 
-- **Wallet Connection**: MetaMask 연결 및 HyperEVM 네트워크 자동 전환
-- **Balance Display**: Perp/Spot 잔액 조회 (L1Read Precompile 사용)
-- **Precompile Testing**: 5개 Precompile 컨트랙트 테스트
-  - 0x0000...0801: userState
-  - 0x0000...0802: spotState
-  - 0x0000...0803: getWithdrawable
-  - 0x0000...0804: getPositions
-  - 0x0000...0805: getDelegations
-- **CoreWriter Testing**: 15개 CoreWriter Action 테스트
-- **Transaction Logs**: 트랜잭션 상태 실시간 모니터링
+- **Wallet Connection**: MetaMask integration with automatic HyperEVM network switching
+- **Balance Display**: Query Perp/Spot balances using L1Read Precompile
+- **Precompile Testing**: Test all 5 Precompile contracts
+  - `0x0000...0801`: userState
+  - `0x0000...0802`: spotState
+  - `0x0000...0803`: getWithdrawable
+  - `0x0000...0804`: getPositions
+  - `0x0000...0805`: getDelegations
+- **CoreWriter Testing**: Test 15 CoreWriter Actions
+- **Transaction Logs**: Real-time transaction status monitoring
 
 ## Tech Stack
 
@@ -69,6 +69,14 @@ npm run build
 [3 bytes: action_id] big-endian
 [remaining: params] ABI-encoded
 ```
+
+## Examples
+
+Check out the `examples/` folder for code samples in various languages:
+- **JavaScript**: CoreWriter and Multicall examples
+- **TypeScript**: CoreWriter SDK and Multicall with viem
+- **Python**: CoreWriter and Multicall examples
+- **Solidity**: CoreWriterHelper and MulticallReader contracts
 
 ## License
 
